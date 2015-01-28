@@ -1,0 +1,25 @@
+From 0998ae6de82e6ce955267ac4a404a18328c4fe4e Mon Sep 17 00:00:00 2001
+From: "Simental Magana, Marcos" <marcos.simental.magana@intel.com>
+Date: Mon, 15 Jun 2015 15:59:12 -0500
+Subject: [PATCH] use ruby newer than 1.9
+
+---
+ Makefile.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index 43a6ed0..cfcd2a1 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -201,7 +201,7 @@ endif
+ 
+ ifeq ("$(TESTING)", "yes")
+ # testing and report generation
+-RUBY=ruby1.9 -Ireport-generators/lib -Ireport-generators/test
++RUBY=ruby -Ireport-generators/lib -Ireport-generators/test
+ 
+ .PHONY: unit-test ruby-test test-programs
+ 
+-- 
+1.9.3
+

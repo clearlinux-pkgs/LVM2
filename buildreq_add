@@ -1,0 +1,8 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+systemd-dev
+kmod
+ncurses-dev
+readline-dev
+python-dev
+ruby

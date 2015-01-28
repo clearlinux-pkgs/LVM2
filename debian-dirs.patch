@@ -1,0 +1,64 @@
+From: https://sources.debian.net/src/lvm2/2.02.111-2.2/debian/patches/dirs.patch/
+Index: LVM2.2.02.120/daemons/dmeventd/dmeventd.c
+===================================================================
+--- LVM2.2.02.120.orig/daemons/dmeventd/dmeventd.c
++++ LVM2.2.02.120/daemons/dmeventd/dmeventd.c
+@@ -1011,8 +1011,17 @@ static struct dso_data *_load_dso(struct
+ {
+ 	void *dl;
+ 	struct dso_data *ret;
++	char dso_name[PATH_MAX];
+ 
+-	if (!(dl = dlopen(data->dso_name, RTLD_NOW))) {
++	if (strchr(data->dso_name, '/') == NULL) {
++		strcpy(dso_name, PLUGIN_PATH);
++		strncat(dso_name, data->dso_name, sizeof(dso_name));
++	} else {
++		strncpy(dso_name, data->dso_name, sizeof(dso_name));
++	}
++	dso_name[sizeof(dso_name) - 1] = 0;
++
++	if (!(dl = dlopen(dso_name, RTLD_NOW))) {
+ 		const char *dlerr = dlerror();
+ 		syslog(LOG_ERR, "dmeventd %s dlopen failed: %s", data->dso_name,
+ 		       dlerr);
+Index: LVM2.2.02.120/daemons/dmeventd/Makefile.in
+===================================================================
+--- LVM2.2.02.120.orig/daemons/dmeventd/Makefile.in
++++ LVM2.2.02.120/daemons/dmeventd/Makefile.in
+@@ -58,6 +58,7 @@ device-mapper: $(TARGETS)
+ 
+ LIBS += -ldevmapper
+ LVMLIBS += -ldevmapper-event $(PTHREAD_LIBS)
++CFLAGS += -DPLUGIN_PATH=\"$(libdir)/device-mapper/\"
+ 
+ CFLAGS_dmeventd.o += $(EXTRA_EXEC_CFLAGS)
+ 
+Index: LVM2.2.02.120/lib/config/config.c
+===================================================================
+--- LVM2.2.02.120.orig/lib/config/config.c
++++ LVM2.2.02.120/lib/config/config.c
+@@ -2113,10 +2113,8 @@ const char *get_default_devices_cache_CF
+ 
+ 	if (cache_dir || cache_file_prefix) {
+ 		if (dm_snprintf(buf, sizeof(buf),
+-				"%s%s%s/%s.cache",
+-				cache_dir ? "" : cmd->system_dir,
+-				cache_dir ? "" : "/",
+-				cache_dir ? : DEFAULT_CACHE_SUBDIR,
++				"%s/%s.cache",
++				cache_dir ? : DEFAULT_RUN_DIR,
+ 				cache_file_prefix ? : DEFAULT_CACHE_FILE_PREFIX) < 0) {
+ 			log_error("Persistent cache filename too long.");
+ 			return NULL;
+@@ -2124,8 +2122,8 @@ const char *get_default_devices_cache_CF
+ 		return dm_pool_strdup(cmd->mem, buf);
+ 	}
+ 
+-	if (dm_snprintf(buf, sizeof(buf), "%s/%s/%s.cache", cmd->system_dir,
+-			DEFAULT_CACHE_SUBDIR, DEFAULT_CACHE_FILE_PREFIX) < 0) {
++	if (dm_snprintf(buf, sizeof(buf), "%s/%s.cache",
++			DEFAULT_RUN_DIR, DEFAULT_CACHE_FILE_PREFIX) < 0) {
+ 		log_error("Persistent cache filename too long.");
+ 		return NULL;
+ 	}

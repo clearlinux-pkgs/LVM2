@@ -1,0 +1,14 @@
+--enable-applib
+--enable-cmdlib 
+--enable-pkgconfig
+--enable-dmeventd
+--enable-lvmetad
+--enable-testing
+--enable-udev_sync
+--sbindir=/usr/bin
+--enable-python_bindings
+--libdir=/usr/lib64
+--with-usrlibdir=/usr/lib64
+--with-default-run-dir=/run/lvm
+--with-default-locking-dir=/run/lock/lvm
+--with-systemdsystemunitdir=/usr/lib/systemd/system

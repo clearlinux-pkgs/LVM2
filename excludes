@@ -1,0 +1,15 @@
+# This file contains the output files that need %exclude. Full path
+# names, one per line.
+
+# There is no difference to compiled in defaults
+# Thus no need to ship these
+/etc/lvm/lvm.conf
+/etc/lvm/lvmlocal.conf
+
+# Templates are for documentation really...
+/etc/lvm/profile/command_profile_template.profile
+/etc/lvm/profile/metadata_profile_template.profile
+
+# We don't have full thin provisioning support in place...
+/etc/lvm/profile/thin-generic.profile
+/etc/lvm/profile/thin-performance.profile
