@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.02.132
-Release  : 33
+Release  : 34
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.132.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.132.tgz
 Summary  : lvm2 application library
