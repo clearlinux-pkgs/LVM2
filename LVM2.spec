@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.02.132
-Release  : 34
+Release  : 35
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.132.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.132.tgz
 Summary  : lvm2 application library
@@ -30,6 +30,7 @@ BuildRequires : systemd-dev
 Patch1: debian-dirs.patch
 Patch2: debian-install.patch
 Patch3: 0001-use-ruby-newer-than-1.9.patch
+Patch4: trim.patch
 
 %description
 This tree contains the LVM2 and device-mapper tools and libraries.
@@ -103,6 +104,7 @@ python components for the LVM2 package.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %configure --disable-static --enable-applib \
