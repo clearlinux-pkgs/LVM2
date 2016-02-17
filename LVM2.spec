@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.02.142
-Release  : 40
+Release  : 42
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.142.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.142.tgz
 Summary  : lvm2 application library
@@ -134,7 +134,7 @@ rm -rf %{buildroot}
 mkdir %{buildroot}/usr/lib/systemd/system/sysinit.target.wants
 ln -s ../blk-availability.service %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
 ln -s ../lvm2-monitor.service %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/lvm2-monitor.service
-ln -s ../lvmetad.socket %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/lvmetad.socket
+ln -s ../lvm2-lvmetad.socket %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
 mkdir %{buildroot}/usr/lib/systemd/system/sockets.target.wants
 ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.wants/dm-event.socket
 ## make_install_append end
@@ -209,8 +209,8 @@ ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.want
 %exclude /usr/lib/systemd/system/lvm2-pvscan@.service
 %exclude /usr/lib/systemd/system/sockets.target.wants/dm-event.socket
 %exclude /usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
+%exclude /usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
 %exclude /usr/lib/systemd/system/sysinit.target.wants/lvm2-monitor.service
-%exclude /usr/lib/systemd/system/sysinit.target.wants/lvmetad.socket
 /usr/lib/tmpfiles.d/lvm2.conf
 /usr/lib/udev/rules.d/10-dm.rules
 /usr/lib/udev/rules.d/11-dm-lvm.rules
@@ -241,8 +241,8 @@ ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.want
 /usr/lib/systemd/system/lvm2-pvscan@.service
 /usr/lib/systemd/system/sockets.target.wants/dm-event.socket
 /usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
+/usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
 /usr/lib/systemd/system/sysinit.target.wants/lvm2-monitor.service
-/usr/lib/systemd/system/sysinit.target.wants/lvmetad.socket
 
 %files lib
 %defattr(-,root,root,-)

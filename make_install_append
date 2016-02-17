@@ -1,6 +1,6 @@
 mkdir %{buildroot}/usr/lib/systemd/system/sysinit.target.wants
 ln -s ../blk-availability.service %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
 ln -s ../lvm2-monitor.service %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/lvm2-monitor.service
-ln -s ../lvmetad.socket %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/lvmetad.socket
+ln -s ../lvm2-lvmetad.socket %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
 mkdir %{buildroot}/usr/lib/systemd/system/sockets.target.wants
 ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.wants/dm-event.socket
