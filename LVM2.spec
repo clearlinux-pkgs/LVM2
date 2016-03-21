@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.02.147
-Release  : 47
+Release  : 48
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.147.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.147.tgz
 Summary  : lvm2 application library
@@ -105,6 +105,10 @@ python components for the LVM2 package.
 %patch3 -p1
 
 %build
+export CFLAGS="$CFLAGS -ffunction-sections -Os "
+export FCFLAGS="$CFLAGS -ffunction-sections -Os "
+export FFLAGS="$CFLAGS -ffunction-sections -Os "
+export CXXFLAGS="$CXXFLAGS -ffunction-sections -Os "
 %configure --disable-static --enable-applib \
 --enable-cmdlib \
 --enable-pkgconfig \
