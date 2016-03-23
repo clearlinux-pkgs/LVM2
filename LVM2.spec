@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.02.147
-Release  : 48
+Release  : 49
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.147.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.147.tgz
 Summary  : lvm2 application library
@@ -86,6 +86,14 @@ Group: Libraries
 Requires: LVM2-config
 
 %description lib
+lib components for the LVM2 package.
+
+
+%package lib-small
+Summary: small lib components for the LVM2 package.
+Group: Libraries
+
+%description lib-small
 lib components for the LVM2 package.
 
 
@@ -255,7 +263,11 @@ ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.want
 /usr/lib64/device-mapper/libdevmapper-event-lvm2raid.so
 /usr/lib64/device-mapper/libdevmapper-event-lvm2snapshot.so
 /usr/lib64/device-mapper/libdevmapper-event-lvm2thin.so
+%exclude /usr/lib64/libdevmapper.so.1.02
 
 %files python
 %defattr(-,root,root,-)
 /usr/lib/python*/*
+
+%files lib-small
+/usr/lib64/libdevmapper.so.1.02
