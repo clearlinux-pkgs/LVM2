@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.02.147
-Release  : 49
+Release  : 50
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.147.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.147.tgz
 Summary  : lvm2 application library
@@ -254,7 +254,7 @@ ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.want
 /usr/lib/systemd/system/sockets.target.wants/dm-event.socket
 /usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
 /usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
-/usr/lib/systemd/system/sysinit.target.wants/lvm2-monitor.service
+%exclude /usr/lib/systemd/system/sysinit.target.wants/lvm2-monitor.service
 
 %files lib
 %defattr(-,root,root,-)
