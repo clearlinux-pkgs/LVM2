@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.02.150
-Release  : 51
+Release  : 52
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.150.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.150.tgz
 Summary  : lvm2 application library
@@ -99,17 +99,16 @@ python components for the LVM2 package.
 
 
 %prep
-cd ..
 %setup -q -n LVM2.2.02.150
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
 
 %build
-export CFLAGS="$CFLAGS -ffunction-sections -Os "
-export FCFLAGS="$CFLAGS -ffunction-sections -Os "
-export FFLAGS="$CFLAGS -ffunction-sections -Os "
-export CXXFLAGS="$CXXFLAGS -ffunction-sections -Os "
+export CFLAGS="$CFLAGS -Os -ffunction-sections "
+export FCFLAGS="$CFLAGS -Os -ffunction-sections "
+export FFLAGS="$CFLAGS -Os -ffunction-sections "
+export CXXFLAGS="$CXXFLAGS -Os -ffunction-sections "
 %configure --disable-static --enable-applib \
 --enable-cmdlib \
 --enable-pkgconfig \
@@ -149,6 +148,7 @@ ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.want
 
 %files bin
 %defattr(-,root,root,-)
+%exclude /usr/bin/lvmetad
 /usr/bin/blkdeactivate
 /usr/bin/dmeventd
 /usr/bin/dmsetup
@@ -165,7 +165,6 @@ ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.want
 /usr/bin/lvmconfig
 /usr/bin/lvmdiskscan
 /usr/bin/lvmdump
-/usr/bin/lvmetad
 /usr/bin/lvmsadc
 /usr/bin/lvmsar
 /usr/bin/lvreduce
@@ -216,11 +215,11 @@ ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.want
 %exclude /usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
 %exclude /usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
 %exclude /usr/lib/systemd/system/sysinit.target.wants/lvm2-monitor.service
+%exclude /usr/lib/udev/rules.d/69-dm-lvm-metad.rules
 /usr/lib/tmpfiles.d/lvm2.conf
 /usr/lib/udev/rules.d/10-dm.rules
 /usr/lib/udev/rules.d/11-dm-lvm.rules
 /usr/lib/udev/rules.d/13-dm-disk.rules
-/usr/lib/udev/rules.d/69-dm-lvm-metad.rules
 /usr/lib/udev/rules.d/95-dm-notify.rules
 
 %files dev
@@ -237,6 +236,7 @@ ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.want
 
 %files extras
 %defattr(-,root,root,-)
+/usr/bin/lvmetad
 /usr/lib/systemd/system/blk-availability.service
 /usr/lib/systemd/system/dm-event.service
 /usr/lib/systemd/system/dm-event.socket
@@ -248,6 +248,7 @@ ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.want
 /usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
 /usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
 /usr/lib/systemd/system/sysinit.target.wants/lvm2-monitor.service
+/usr/lib/udev/rules.d/69-dm-lvm-metad.rules
 
 %files lib
 %defattr(-,root,root,-)
