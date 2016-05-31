@@ -1,6 +1,6 @@
 Name     : LVM2
 Version  : 2.02.154
-Release  : 57
+Release  : 58
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.154.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.154.tgz
 Summary  : lvm2 application library
@@ -140,7 +140,6 @@ rm -rf %{buildroot}
 ## make_install_append content
 mkdir %{buildroot}/usr/lib/systemd/system/sysinit.target.wants
 ln -s ../blk-availability.service %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
-ln -s ../lvm2-monitor.service %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/lvm2-monitor.service
 ln -s ../lvm2-lvmetad.socket %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
 mkdir %{buildroot}/usr/lib/systemd/system/sockets.target.wants
 ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.wants/dm-event.socket
@@ -245,12 +244,10 @@ ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.want
 /usr/lib/systemd/system/dm-event.socket
 /usr/lib/systemd/system/lvm2-lvmetad.service
 /usr/lib/systemd/system/lvm2-lvmetad.socket
-/usr/lib/systemd/system/lvm2-monitor.service
 /usr/lib/systemd/system/lvm2-pvscan@.service
 /usr/lib/systemd/system/sockets.target.wants/dm-event.socket
 /usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
 /usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
-/usr/lib/systemd/system/sysinit.target.wants/lvm2-monitor.service
 /usr/lib/udev/rules.d/69-dm-lvm-metad.rules
 
 %files lib

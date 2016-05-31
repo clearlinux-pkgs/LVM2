@@ -3,7 +3,6 @@
 /usr/lib/systemd/system/dm-event.socket
 /usr/lib/systemd/system/lvm2-lvmetad.service
 /usr/lib/systemd/system/lvm2-lvmetad.socket
-/usr/lib/systemd/system/lvm2-monitor.service
 /usr/lib/systemd/system/lvm2-pvscan@.service
 /usr/lib/systemd/system/sockets.target.wants/dm-event.socket
 /usr/lib/systemd/system/sysinit.target.wants/blk-availability.service

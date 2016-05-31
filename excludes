@@ -13,3 +13,9 @@
 # We don't have full thin provisioning support in place...
 /etc/lvm/profile/thin-generic.profile
 /etc/lvm/profile/thin-performance.profile
+
+
+#
+# Takes forever
+
+/usr/lib/systemd/system/lvm2-monitor.service
