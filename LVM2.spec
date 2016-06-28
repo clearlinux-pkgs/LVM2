@@ -1,6 +1,6 @@
 Name     : LVM2
 Version  : 2.02.158
-Release  : 59
+Release  : 60
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.158.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.158.tgz
 Summary  : lvm2 application library
