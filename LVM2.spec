@@ -1,8 +1,8 @@
 Name     : LVM2
-Version  : 2.02.161
+Version  : 2.02.162
 Release  : 60
-URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.161.tgz
-Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.161.tgz
+URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.162.tgz
+Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.162.tgz
 Summary  : lvm2 application library
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -102,7 +102,7 @@ python components for the LVM2 package.
 
 
 %prep
-%setup -q -n LVM2.2.02.161
+%setup -q -n LVM2.2.02.162
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
