@@ -1,6 +1,6 @@
 Name     : LVM2
 Version  : 2.02.167
-Release  : 64
+Release  : 65
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.167.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.167.tgz
 Summary  : lvm2 application library
@@ -18,7 +18,7 @@ BuildRequires : pkgconfig(cunit)
 BuildRequires : pkgconfig(libudev)
 BuildRequires : pkgconfig(systemd)
 BuildRequires : pkgconfig(valgrind)
-BuildRequires : python-dev
+BuildRequires : python3-dev
 BuildRequires : readline-dev
 BuildRequires : ruby
 BuildRequires : sed
@@ -120,7 +120,7 @@ export CXXFLAGS="$CXXFLAGS -ffunction-sections -Os "
 --enable-testing \
 --enable-udev_sync \
 --sbindir=/usr/bin \
---enable-python2-bindings \
+--enable-python3-bindings \
 --libdir=/usr/lib64 \
 --with-usrlibdir=/usr/lib64 \
 --with-default-run-dir=/run/lvm \
@@ -137,13 +137,6 @@ make unit-test memcheck
 %install
 rm -rf %{buildroot}
 %make_install install install_systemd_units install_tmpfiles_configuration
-## make_install_append content
-mkdir %{buildroot}/usr/lib/systemd/system/sysinit.target.wants
-ln -s ../blk-availability.service %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
-ln -s ../lvm2-lvmetad.socket %{buildroot}/usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
-mkdir %{buildroot}/usr/lib/systemd/system/sockets.target.wants
-ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.wants/dm-event.socket
-## make_install_append end
 
 %files
 %defattr(-,root,root,-)
@@ -245,9 +238,6 @@ ln -s ../dm-event.socket %{buildroot}/usr/lib/systemd/system/sockets.target.want
 /usr/lib/systemd/system/lvm2-lvmetad.service
 /usr/lib/systemd/system/lvm2-lvmetad.socket
 /usr/lib/systemd/system/lvm2-pvscan@.service
-/usr/lib/systemd/system/sockets.target.wants/dm-event.socket
-/usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
-/usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
 /usr/lib/udev/rules.d/69-dm-lvm-metad.rules
 
 %files lib

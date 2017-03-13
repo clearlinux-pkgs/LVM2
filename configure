@@ -6,7 +6,7 @@
 --enable-testing
 --enable-udev_sync
 --sbindir=/usr/bin
---enable-python2-bindings
+--enable-python3-bindings
 --libdir=/usr/lib64
 --with-usrlibdir=/usr/lib64
 --with-default-run-dir=/run/lvm
