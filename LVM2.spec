@@ -7,7 +7,6 @@ Summary  : lvm2 application library
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
 Requires: LVM2-bin
-Requires: LVM2-python
 Requires: LVM2-config
 Requires: LVM2-lib
 Requires: LVM2-doc
