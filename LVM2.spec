@@ -1,8 +1,8 @@
 Name     : LVM2
-Version  : 2.02.168
+Version  : 2.02.169
 Release  : 67
-URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.168.tgz
-Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.168.tgz
+URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.169.tgz
+Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.169.tgz
 Summary  : lvm2 application library
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -101,7 +101,7 @@ python components for the LVM2 package.
 
 
 %prep
-%setup -q -n LVM2.2.02.168
+%setup -q -n LVM2.2.02.169
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -154,7 +154,7 @@ rm -rf %{buildroot}
 /usr/bin/lvdisplay
 /usr/bin/lvextend
 /usr/bin/lvm
-/usr/bin/lvmchange
+#/usr/bin/lvmchange
 /usr/bin/lvmconf
 /usr/bin/lvmconfig
 /usr/bin/lvmdiskscan
