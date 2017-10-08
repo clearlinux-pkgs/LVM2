@@ -1,6 +1,6 @@
 Name     : LVM2
 Version  : 2.02.175
-Release  : 70
+Release  : 71
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.175.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.175.tgz
 Summary  : lvm2 application library
@@ -109,7 +109,7 @@ python components for the LVM2 package.
 %patch4 -p1
 
 %build
-export CFLAGS="$CFLAGS -ffunction-sections -Os "
+export CFLAGS="$CFLAGS -ffunction-sections -Os -falign-functions=16"
 export FCFLAGS="$CFLAGS -ffunction-sections -Os "
 export FFLAGS="$CFLAGS -ffunction-sections -Os "
 export CXXFLAGS="$CXXFLAGS -ffunction-sections -Os "
