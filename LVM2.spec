@@ -1,6 +1,6 @@
 Name     : LVM2
 Version  : 2.02.175
-Release  : 69
+Release  : 70
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.175.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.175.tgz
 Summary  : lvm2 application library
@@ -25,6 +25,7 @@ BuildRequires : systemd-dev
 Patch1: debian-dirs.patch
 Patch2: 0001-use-ruby-newer-than-1.9.patch
 Patch3: trim.patch
+Patch4: no-man-delta.patch
 
 %description
 This tree contains the LVM2 and device-mapper tools and libraries.
@@ -105,6 +106,7 @@ python components for the LVM2 package.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 export CFLAGS="$CFLAGS -ffunction-sections -Os "
