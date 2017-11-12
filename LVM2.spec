@@ -22,6 +22,8 @@ BuildRequires : readline-dev
 BuildRequires : ruby
 BuildRequires : sed
 BuildRequires : systemd-dev
+BuildRequires : thin-provisioning-tools
+
 Patch1: debian-dirs.patch
 Patch2: 0001-use-ruby-newer-than-1.9.patch
 Patch3: trim.patch

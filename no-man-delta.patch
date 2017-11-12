@@ -1,15 +1,11 @@
-Don't put the version number in the man pages
-
-it creats lots of noise in update deltas
-
---- LVM2.2.02.175/man/Makefile.in~	2017-10-06 21:18:34.000000000 +0000
-+++ LVM2.2.02.175/man/Makefile.in	2017-10-08 01:28:01.339152634 +0000
-@@ -172,7 +172,7 @@
+--- LVM2.2.02.176/man/Makefile.in~	2017-11-03 02:31:45.000000000 +0000
++++ LVM2.2.02.176/man/Makefile.in	2017-11-12 22:32:50.826732366 +0000
+@@ -185,7 +185,7 @@
  
  define SUBSTVARS
- echo "Generating $@"
--$(SED)	-e "s+#VERSION#+$(LVM_VERSION)+" \
-+$(SED)	-e "s+#VERSION#+LVM+" \
+ $(Q)echo "Generating $@"
+-$(Q)$(SED) -e "s+#VERSION#+$(LVM_VERSION)+" \
++$(Q)$(SED) -e "s+#VERSION#+LVM+" \
  	-e "s+#DEFAULT_SYS_DIR#+$(DEFAULT_SYS_DIR)+" \
  	-e "s+#DEFAULT_ARCHIVE_DIR#+$(DEFAULT_ARCHIVE_DIR)+" \
  	-e "s+#DEFAULT_BACKUP_DIR#+$(DEFAULT_BACKUP_DIR)+" \
