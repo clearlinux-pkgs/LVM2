@@ -1,6 +1,6 @@
 Name     : LVM2
 Version  : 2.02.177
-Release  : 76
+Release  : 77
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.177.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.177.tgz
 Summary  : lvm2 application library
