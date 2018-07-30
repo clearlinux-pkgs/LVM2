@@ -1,8 +1,8 @@
 Name     : LVM2
-Version  : 2.02.177
+Version  : 2.02.178
 Release  : 77
-URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.177.tgz
-Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.177.tgz
+URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.178.tgz
+Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.178.tgz
 Summary  : lvm2 application library
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -23,9 +23,9 @@ BuildRequires : ruby
 BuildRequires : sed
 BuildRequires : systemd-dev
 BuildRequires : thin-provisioning-tools
+BuildRequires : libaio-dev
 
 Patch1: debian-dirs.patch
-Patch2: 0001-use-ruby-newer-than-1.9.patch
 Patch3: trim.patch
 Patch4: no-man-delta.patch
 
@@ -104,9 +104,8 @@ python components for the LVM2 package.
 
 
 %prep
-%setup -q -n LVM2.2.02.177
+%setup -q -n LVM2.2.02.178
 %patch1 -p1
-%patch2 -p1
 %patch3 -p1
 %patch4 -p1
 
@@ -135,7 +134,7 @@ make V=1  %{?_smp_mflags}
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost
-make unit-test memcheck
+make unit-test 
 
 %install
 rm -rf %{buildroot}

@@ -1,11 +1,11 @@
---- LVM2.2.02.176/man/Makefile.in~	2017-11-03 02:31:45.000000000 +0000
-+++ LVM2.2.02.176/man/Makefile.in	2017-11-12 22:32:50.826732366 +0000
-@@ -185,7 +185,7 @@
+--- LVM2.2.02.178/man/Makefile.in~	2018-06-13 12:32:34.000000000 +0000
++++ LVM2.2.02.178/man/Makefile.in	2018-07-30 01:13:31.505725677 +0000
+@@ -157,7 +157,7 @@
+ 	) > $@
  
  define SUBSTVARS
- $(Q)echo "Generating $@"
 -$(Q)$(SED) -e "s+#VERSION#+$(LVM_VERSION)+" \
-+$(Q)$(SED) -e "s+#VERSION#+LVM+" \
++$(Q)$(SED) -e "s+#VERSION#+LVM_VERSION+" \
  	-e "s+#DEFAULT_SYS_DIR#+$(DEFAULT_SYS_DIR)+" \
  	-e "s+#DEFAULT_ARCHIVE_DIR#+$(DEFAULT_ARCHIVE_DIR)+" \
  	-e "s+#DEFAULT_BACKUP_DIR#+$(DEFAULT_BACKUP_DIR)+" \

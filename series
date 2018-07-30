@@ -1,3 +1,3 @@
 debian-dirs.patch
-0001-use-ruby-newer-than-1.9.patch
+#0001-use-ruby-newer-than-1.9.patch
 trim.patch
