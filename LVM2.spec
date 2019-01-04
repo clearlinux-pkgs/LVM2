@@ -1,8 +1,8 @@
 Name     : LVM2
-Version  : 2.02.178
+Version  : 2.03.00
 Release  : 77
-URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.178.tgz
-Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.178.tgz
+URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.00.tgz
+Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.00.tgz
 Summary  : lvm2 application library
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -24,6 +24,10 @@ BuildRequires : sed
 BuildRequires : systemd-dev
 BuildRequires : thin-provisioning-tools
 BuildRequires : libaio-dev
+BuildRequires : ctags
+BuildRequires : dbus-dev
+BuildRequires : pyudev
+BuildRequires : dbus-python
 
 Patch1: debian-dirs.patch
 Patch3: trim.patch
@@ -104,7 +108,7 @@ python components for the LVM2 package.
 
 
 %prep
-%setup -q -n LVM2.2.02.178
+%setup -q -n LVM2.2.03.00
 %patch1 -p1
 %patch3 -p1
 %patch4 -p1
@@ -127,14 +131,18 @@ export CXXFLAGS="$CXXFLAGS -ffunction-sections -Os "
 --with-usrlibdir=/usr/lib64 \
 --with-default-run-dir=/run/lvm \
 --with-default-locking-dir=/run/lock/lvm \
---with-systemdsystemunitdir=/usr/lib/systemd/system
+--with-systemdsystemunitdir=/usr/lib/systemd/system \
+--enable-dbus-service \
+--enable-dmeventd \
+--enable-notify-dbus 
+
 make V=1  %{?_smp_mflags}
 
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost
-make unit-test 
+make test 
 
 %install
 rm -rf %{buildroot}
@@ -145,7 +153,6 @@ rm -rf %{buildroot}
 
 %files bin
 %defattr(-,root,root,-)
-%exclude /usr/bin/lvmetad
 /usr/bin/blkdeactivate
 /usr/bin/dmeventd
 /usr/bin/dmsetup
@@ -158,7 +165,7 @@ rm -rf %{buildroot}
 /usr/bin/lvextend
 /usr/bin/lvm
 #/usr/bin/lvmchange
-/usr/bin/lvmconf
+#/usr/bin/lvmconf
 /usr/bin/lvmconfig
 /usr/bin/lvmdiskscan
 /usr/bin/lvmdump
@@ -198,26 +205,22 @@ rm -rf %{buildroot}
 /usr/bin/vgs
 /usr/bin/vgscan
 /usr/bin/vgsplit
+/usr/bin/lvmdbusd
 
 %files config
 %defattr(-,root,root,-)
 %exclude /usr/lib/systemd/system/blk-availability.service
 %exclude /usr/lib/systemd/system/dm-event.service
 %exclude /usr/lib/systemd/system/dm-event.socket
-%exclude /usr/lib/systemd/system/lvm2-lvmetad.service
-%exclude /usr/lib/systemd/system/lvm2-lvmetad.socket
 %exclude /usr/lib/systemd/system/lvm2-monitor.service
-%exclude /usr/lib/systemd/system/lvm2-pvscan@.service
-%exclude /usr/lib/systemd/system/sockets.target.wants/dm-event.socket
-%exclude /usr/lib/systemd/system/sysinit.target.wants/blk-availability.service
-%exclude /usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
-%exclude /usr/lib/systemd/system/sysinit.target.wants/lvm2-monitor.service
-%exclude /usr/lib/udev/rules.d/69-dm-lvm-metad.rules
 /usr/lib/tmpfiles.d/lvm2.conf
 /usr/lib/udev/rules.d/10-dm.rules
 /usr/lib/udev/rules.d/11-dm-lvm.rules
 /usr/lib/udev/rules.d/13-dm-disk.rules
 /usr/lib/udev/rules.d/95-dm-notify.rules
+/usr/lib/systemd/system/lvm2-lvmdbusd.service
+/usr/share/dbus-1/system-services/com.redhat.lvmdbus1.service
+/usr/share/dbus-1/system.d/com.redhat.lvmdbus1.conf
 
 %files dev
 %defattr(-,root,root,-)
@@ -233,14 +236,6 @@ rm -rf %{buildroot}
 
 %files extras
 %defattr(-,root,root,-)
-/usr/bin/lvmetad
-/usr/lib/systemd/system/blk-availability.service
-/usr/lib/systemd/system/dm-event.service
-/usr/lib/systemd/system/dm-event.socket
-/usr/lib/systemd/system/lvm2-lvmetad.service
-/usr/lib/systemd/system/lvm2-lvmetad.socket
-/usr/lib/systemd/system/lvm2-pvscan@.service
-/usr/lib/udev/rules.d/69-dm-lvm-metad.rules
 
 %files lib
 %defattr(-,root,root,-)
@@ -250,10 +245,11 @@ rm -rf %{buildroot}
 /usr/lib64/device-mapper/libdevmapper-event-lvm2raid.so
 /usr/lib64/device-mapper/libdevmapper-event-lvm2snapshot.so
 /usr/lib64/device-mapper/libdevmapper-event-lvm2thin.so
+/usr/lib64/device-mapper/libdevmapper-event-lvm2vdo.so
 
 %files python
-%defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python3.7/*
 
 %files lib-extra
 /usr/lib64/libdevmapper.so.*
+

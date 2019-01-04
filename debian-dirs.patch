@@ -8,19 +8,6 @@ Subject: dirs
  lib/config/config.c  | 10 ++++------
  2 files changed, 5 insertions(+), 7 deletions(-)
 
-diff --git a/conf/example.conf.in b/conf/example.conf.in
-index b8c0407..c9c6776 100644
---- a/conf/example.conf.in
-+++ b/conf/example.conf.in
-@@ -158,7 +158,7 @@ devices {
- 	# tools regenerate it. If obtain_device_list_from_udev is enabled, the
- 	# list of devices is obtained from udev and any existing .cache file
- 	# is removed.
--	cache_dir = "@DEFAULT_SYS_DIR@/@DEFAULT_CACHE_SUBDIR@"
-+	cache_dir = "@DEFAULT_RUN_DIR@"
- 
- 	# Configuration option devices/cache_file_prefix.
- 	# A prefix used before the .cache file name. See devices/cache_dir.
 diff --git a/lib/config/config.c b/lib/config/config.c
 index 5551a7f..42db3a3 100644
 --- a/lib/config/config.c

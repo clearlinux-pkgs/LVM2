@@ -5,6 +5,9 @@
 --enable-lvmetad
 --enable-testing
 --enable-udev_sync
+--enable-udev_rules
+--enable-udev-rule-exec-detection
+--enable-compat
 --sbindir=/usr/bin
 --enable-python3-bindings
 --libdir=/usr/lib64
@@ -12,3 +15,6 @@
 --with-default-run-dir=/run/lvm
 --with-default-locking-dir=/run/lock/lvm
 --with-systemdsystemunitdir=/usr/lib/systemd/system
+--enable-dbus-service
+--enable-dmeventd
+--enable-notify-dbus
