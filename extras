@@ -10,3 +10,4 @@
 /usr/lib/systemd/system/sysinit.target.wants/lvm2-lvmetad.socket
 /usr/lib/udev/rules.d/69-dm-lvm-metad.rules
 /usr/bin/lvmetad
+/usr/bin/lvmdbusd

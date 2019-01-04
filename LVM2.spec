@@ -205,7 +205,6 @@ rm -rf %{buildroot}
 /usr/bin/vgs
 /usr/bin/vgscan
 /usr/bin/vgsplit
-/usr/bin/lvmdbusd
 
 %files config
 %defattr(-,root,root,-)
@@ -236,6 +235,7 @@ rm -rf %{buildroot}
 
 %files extras
 %defattr(-,root,root,-)
+/usr/bin/lvmdbusd
 
 %files lib
 %defattr(-,root,root,-)
