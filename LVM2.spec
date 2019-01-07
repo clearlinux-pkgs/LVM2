@@ -217,9 +217,6 @@ rm -rf %{buildroot}
 /usr/lib/udev/rules.d/11-dm-lvm.rules
 /usr/lib/udev/rules.d/13-dm-disk.rules
 /usr/lib/udev/rules.d/95-dm-notify.rules
-/usr/lib/systemd/system/lvm2-lvmdbusd.service
-/usr/share/dbus-1/system-services/com.redhat.lvmdbus1.service
-/usr/share/dbus-1/system.d/com.redhat.lvmdbus1.conf
 
 %files dev
 %defattr(-,root,root,-)
@@ -236,6 +233,10 @@ rm -rf %{buildroot}
 %files extras
 %defattr(-,root,root,-)
 /usr/bin/lvmdbusd
+/usr/lib/systemd/system/lvm2-lvmdbusd.service
+/usr/share/dbus-1/system-services/com.redhat.lvmdbus1.service
+/usr/share/dbus-1/system.d/com.redhat.lvmdbus1.conf
+
 
 %files lib
 %defattr(-,root,root,-)
