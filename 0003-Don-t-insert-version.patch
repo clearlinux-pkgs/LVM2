@@ -1,0 +1,25 @@
+From f914d6414f7fb49a0bfd3bbab8c9fd98b5ba50c8 Mon Sep 17 00:00:00 2001
+From: Auke Kok <auke-jan.h.kok@intel.com>
+Date: Wed, 11 Sep 2019 11:11:44 -0700
+Subject: [PATCH 3/3] Don't insert version.
+
+---
+ man/Makefile.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/man/Makefile.in b/man/Makefile.in
+index 844b0ca..c3aaf4d 100644
+--- a/man/Makefile.in
++++ b/man/Makefile.in
+@@ -157,7 +157,7 @@ SEE_ALSO=$(srcdir)/see_also.end
+ 	) > $@
+ 
+ define SUBSTVARS
+-$(Q)$(SED) -e "s+#VERSION#+$(LVM_VERSION)+" \
++$(Q)$(SED) -e "s+#VERSION#+LVM_VERSION+" \
+ 	-e "s+#DEFAULT_SYS_DIR#+$(DEFAULT_SYS_DIR)+" \
+ 	-e "s+#DEFAULT_ARCHIVE_DIR#+$(DEFAULT_ARCHIVE_DIR)+" \
+ 	-e "s+#DEFAULT_BACKUP_DIR#+$(DEFAULT_BACKUP_DIR)+" \
+-- 
+2.23.0
+

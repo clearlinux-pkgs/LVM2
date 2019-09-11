@@ -1,1 +1,1 @@
-make unit-test memcheck
+make unit-test

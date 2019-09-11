@@ -1,18 +1,17 @@
-From 7022534e9763899eae55da8a3bb9c18c13b038c0 Mon Sep 17 00:00:00 2001
+From 560e2dbd955002b44519086d88d077d8dfa1dde2 Mon Sep 17 00:00:00 2001
 From: Bastian Blank <waldi@debian.org>
 Date: Tue, 30 Jun 2015 11:46:07 +0200
-Subject: dirs
+Subject: [PATCH 1/3] Fix cache dirs.
 
 ---
- conf/example.conf.in |  2 +-
- lib/config/config.c  | 10 ++++------
- 2 files changed, 5 insertions(+), 7 deletions(-)
+ lib/config/config.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/lib/config/config.c b/lib/config/config.c
-index 5551a7f..42db3a3 100644
+index ad816c2..17ca01e 100644
 --- a/lib/config/config.c
 +++ b/lib/config/config.c
-@@ -2309,10 +2309,8 @@ const char *get_default_devices_cache_CFG(struct cmd_context *cmd, struct profil
+@@ -2365,10 +2365,8 @@ const char *get_default_devices_cache_CFG(struct cmd_context *cmd, struct profil
  
  	if (cache_dir || cache_file_prefix) {
  		if (dm_snprintf(buf, sizeof(buf),
@@ -25,7 +24,7 @@ index 5551a7f..42db3a3 100644
  				cache_file_prefix ? : DEFAULT_CACHE_FILE_PREFIX) < 0) {
  			log_error("Persistent cache filename too long.");
  			return NULL;
-@@ -2320,8 +2318,8 @@ const char *get_default_devices_cache_CFG(struct cmd_context *cmd, struct profil
+@@ -2376,8 +2374,8 @@ const char *get_default_devices_cache_CFG(struct cmd_context *cmd, struct profil
  		return dm_pool_strdup(cmd->mem, buf);
  	}
  
@@ -36,3 +35,6 @@ index 5551a7f..42db3a3 100644
  		log_error("Persistent cache filename too long.");
  		return NULL;
  	}
+-- 
+2.23.0
+

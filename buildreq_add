@@ -1,8 +1,11 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-systemd-dev
 kmod
+libaio-dev
 ncurses-dev
+python3-dev
 readline-dev
-python-dev
 ruby
+sed
+systemd-dev
+thin-provisioning-tools
