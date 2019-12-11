@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.02.186
-Release  : 85
+Release  : 86
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.186.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.186.tgz
 Summary  : lvm2 application library
@@ -134,6 +134,7 @@ python3 components for the LVM2 package.
 
 %prep
 %setup -q -n LVM2.2.02.186
+cd %{_builddir}/LVM2.2.02.186
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
@@ -143,7 +144,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568227815
+export SOURCE_DATE_EPOCH=1576032677
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -176,13 +177,13 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make unit-test
 
 %install
-export SOURCE_DATE_EPOCH=1568227815
+export SOURCE_DATE_EPOCH=1576032677
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/LVM2
-cp COPYING %{buildroot}/usr/share/package-licenses/LVM2/COPYING
-cp COPYING.BSD %{buildroot}/usr/share/package-licenses/LVM2/COPYING.BSD
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/LVM2/COPYING.LIB
-cp tools/license.inc %{buildroot}/usr/share/package-licenses/LVM2/tools_license.inc
+cp %{_builddir}/LVM2.2.02.186/COPYING %{buildroot}/usr/share/package-licenses/LVM2/c14c50b6a56cc96c54353b985b104941ca8b86a3
+cp %{_builddir}/LVM2.2.02.186/COPYING.BSD %{buildroot}/usr/share/package-licenses/LVM2/a0d7ec1f083b527a6fe3fee041d01eef016aa871
+cp %{_builddir}/LVM2.2.02.186/COPYING.LIB %{buildroot}/usr/share/package-licenses/LVM2/caeb68c46fa36651acf592771d09de7937926bb3
+cp %{_builddir}/LVM2.2.02.186/tools/license.inc %{buildroot}/usr/share/package-licenses/LVM2/7c3f71e2821b69adeaef9563e74971395dd94eef
 %make_install install_systemd_units install_tmpfiles_configuration
 ## Remove excluded files
 rm -f %{buildroot}/etc/lvm/lvm.conf
@@ -264,16 +265,6 @@ rm -f %{buildroot}/usr/lib/systemd/system/lvm2-monitor.service
 /usr/include/libdevmapper.h
 /usr/include/lvm2app.h
 /usr/include/lvm2cmd.h
-/usr/lib64/libdevmapper-event-lvm2.so
-/usr/lib64/libdevmapper-event-lvm2mirror.so
-/usr/lib64/libdevmapper-event-lvm2raid.so
-/usr/lib64/libdevmapper-event-lvm2snapshot.so
-/usr/lib64/libdevmapper-event-lvm2thin.so
-/usr/lib64/libdevmapper-event-lvm2vdo.so
-/usr/lib64/libdevmapper-event.so
-/usr/lib64/libdevmapper.so
-/usr/lib64/liblvm2app.so
-/usr/lib64/liblvm2cmd.so
 /usr/lib64/pkgconfig/devmapper-event.pc
 /usr/lib64/pkgconfig/devmapper.pc
 /usr/lib64/pkgconfig/lvm2app.pc
@@ -302,15 +293,25 @@ rm -f %{buildroot}/usr/lib/systemd/system/lvm2-monitor.service
 /usr/lib64/device-mapper/libdevmapper-event-lvm2snapshot.so
 /usr/lib64/device-mapper/libdevmapper-event-lvm2thin.so
 /usr/lib64/device-mapper/libdevmapper-event-lvm2vdo.so
+/usr/lib64/libdevmapper-event-lvm2.so
+/usr/lib64/libdevmapper-event-lvm2mirror.so
+/usr/lib64/libdevmapper-event-lvm2raid.so
+/usr/lib64/libdevmapper-event-lvm2snapshot.so
+/usr/lib64/libdevmapper-event-lvm2thin.so
+/usr/lib64/libdevmapper-event-lvm2vdo.so
+/usr/lib64/libdevmapper-event.so
+/usr/lib64/libdevmapper.so
+/usr/lib64/liblvm2app.so
 /usr/lib64/liblvm2app.so.2.2
+/usr/lib64/liblvm2cmd.so
 /usr/lib64/liblvm2cmd.so.2.02
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/LVM2/COPYING
-/usr/share/package-licenses/LVM2/COPYING.BSD
-/usr/share/package-licenses/LVM2/COPYING.LIB
-/usr/share/package-licenses/LVM2/tools_license.inc
+/usr/share/package-licenses/LVM2/7c3f71e2821b69adeaef9563e74971395dd94eef
+/usr/share/package-licenses/LVM2/a0d7ec1f083b527a6fe3fee041d01eef016aa871
+/usr/share/package-licenses/LVM2/c14c50b6a56cc96c54353b985b104941ca8b86a3
+/usr/share/package-licenses/LVM2/caeb68c46fa36651acf592771d09de7937926bb3
 
 %files man
 %defattr(0644,root,root,0755)
