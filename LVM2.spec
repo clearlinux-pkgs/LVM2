@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.02.186
-Release  : 88
+Release  : 89
 URL      : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.186.tgz
 Source0  : http://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.186.tgz
 Summary  : lvm2 application library
@@ -67,6 +67,7 @@ Group: Development
 Requires: LVM2-lib = %{version}-%{release}
 Requires: LVM2-bin = %{version}-%{release}
 Provides: LVM2-devel = %{version}-%{release}
+Requires: LVM2 = %{version}-%{release}
 Requires: LVM2 = %{version}-%{release}
 
 %description dev
@@ -146,7 +147,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576270090
+export SOURCE_DATE_EPOCH=1583172440
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -179,7 +181,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make unit-test
 
 %install
-export SOURCE_DATE_EPOCH=1576270090
+export SOURCE_DATE_EPOCH=1583172440
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/LVM2
 cp %{_builddir}/LVM2.2.02.186/COPYING %{buildroot}/usr/share/package-licenses/LVM2/c14c50b6a56cc96c54353b985b104941ca8b86a3
