@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.02.186
-Release  : 90
+Release  : 91
 URL      : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.186.tgz
 Source0  : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.186.tgz
 Summary  : lvm2 application library
@@ -37,6 +37,7 @@ Patch1: 0001-Fix-cache-dirs.patch
 Patch2: 0002-Add-malloc_trim-call.patch
 Patch3: 0003-Don-t-insert-version.patch
 Patch4: 0004-remove-obsolete-udev-option.patch
+Patch5: CVE-2020-8991.patch
 
 %description
 This tree contains the LVM2 and device-mapper tools and libraries.
@@ -140,21 +141,22 @@ cd %{_builddir}/LVM2.2.02.186
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583343180
+export SOURCE_DATE_EPOCH=1583343373
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
-export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition "
+export CFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FCFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
+export FFLAGS="$CFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
+export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-sections -flto=4 -fno-semantic-interposition -fstack-protector-strong -mzero-caller-saved-regs=used "
 %configure --disable-static --libdir=/usr/lib64 \
 --sbindir=/usr/bin \
 --with-usrlibdir=/usr/lib64 \
@@ -179,7 +181,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make unit-test
 
 %install
-export SOURCE_DATE_EPOCH=1583343180
+export SOURCE_DATE_EPOCH=1583343373
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/LVM2
 cp %{_builddir}/LVM2.2.02.186/COPYING %{buildroot}/usr/share/package-licenses/LVM2/c14c50b6a56cc96c54353b985b104941ca8b86a3
