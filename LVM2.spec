@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.02.186
-Release  : 92
+Release  : 93
 URL      : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.186.tgz
 Source0  : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.02.186.tgz
 Summary  : lvm2 application library
