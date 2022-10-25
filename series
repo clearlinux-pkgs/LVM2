@@ -1,5 +1,5 @@
 0001-Fix-cache-dirs.patch
 0002-Add-malloc_trim-call.patch
-0003-Don-t-insert-version.patch
-0004-remove-obsolete-udev-option.patch
-CVE-2020-8991.patch
+#0003-Don-t-insert-version.patch
+#0004-remove-obsolete-udev-option.patch
+#CVE-2020-8991.patch

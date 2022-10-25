@@ -1,11 +1,10 @@
 libaio.so.1
 libblkid.so.1
 libc.so.6
-libdevmapper-event-lvm2.so.2.02
 libdevmapper-event.so.1.02
 libdevmapper.so.1.02
-libdl.so.2
 libgcc_s.so.1
-libpthread.so.0
+libm.so.6
 libreadline.so.8
+libsystemd.so.0
 libudev.so.1

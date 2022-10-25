@@ -10,3 +10,4 @@ libdlm
 libquorum
 pkgconfiginit
 libsanlock_client
+libseagate_ilm
