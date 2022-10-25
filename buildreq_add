@@ -9,3 +9,5 @@ ruby
 sed
 systemd-dev
 thin-provisioning-tools
+pyudev
+dbus-python

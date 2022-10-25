@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.03.16
-Release  : 108
+Release  : 109
 URL      : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.16.tgz
 Source0  : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.16.tgz
 Summary  : device-mapper library
@@ -15,7 +15,10 @@ Requires: LVM2-config = %{version}-%{release}
 Requires: LVM2-lib = %{version}-%{release}
 Requires: LVM2-license = %{version}-%{release}
 Requires: LVM2-man = %{version}-%{release}
+Requires: LVM2-python = %{version}-%{release}
+Requires: LVM2-python3 = %{version}-%{release}
 BuildRequires : buildreq-configure
+BuildRequires : dbus-python
 BuildRequires : kmod
 BuildRequires : libaio-dev
 BuildRequires : ncurses-dev
@@ -27,6 +30,7 @@ BuildRequires : pkgconfig(libudev)
 BuildRequires : pkgconfig(systemd)
 BuildRequires : pkgconfig(valgrind)
 BuildRequires : python3-dev
+BuildRequires : pyudev
 BuildRequires : readline-dev
 BuildRequires : ruby
 BuildRequires : sed
@@ -110,6 +114,25 @@ Group: Default
 man components for the LVM2 package.
 
 
+%package python
+Summary: python components for the LVM2 package.
+Group: Default
+Requires: LVM2-python3 = %{version}-%{release}
+Provides: lvm2-python
+
+%description python
+python components for the LVM2 package.
+
+
+%package python3
+Summary: python3 components for the LVM2 package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the LVM2 package.
+
+
 %prep
 %setup -q -n LVM2.2.03.16
 cd %{_builddir}/LVM2.2.03.16
@@ -121,7 +144,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1666740265
+export SOURCE_DATE_EPOCH=1666741348
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -143,7 +166,8 @@ export CXXFLAGS="$CXXFLAGS -O3 -Os -fdata-sections -ffat-lto-objects -ffunction-
 --enable-pkgconfig \
 --enable-python3-bindings \
 --enable-testing \
---enable-udev_sync
+--enable-udev_sync \
+--enable-dbus-service
 make  %{?_smp_mflags}
 
 %check
@@ -154,7 +178,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make unit-test
 
 %install
-export SOURCE_DATE_EPOCH=1666740265
+export SOURCE_DATE_EPOCH=1666741348
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/LVM2
 cp %{_builddir}/LVM2.%{version}/COPYING %{buildroot}/usr/share/package-licenses/LVM2/c14c50b6a56cc96c54353b985b104941ca8b86a3 || :
@@ -249,9 +273,13 @@ rm -f %{buildroot}*/usr/lib/systemd/system/lvm2-monitor.service
 
 %files extras
 %defattr(-,root,root,-)
+/usr/bin/lvmdbusd
 /usr/lib/systemd/system/blk-availability.service
 /usr/lib/systemd/system/dm-event.service
 /usr/lib/systemd/system/dm-event.socket
+/usr/lib/systemd/system/lvm2-lvmdbusd.service
+/usr/share/dbus-1/system-services/com.redhat.lvmdbus1.service
+/usr/share/dbus-1/system.d/com.redhat.lvmdbus1.conf
 
 %files extras-lib
 %defattr(-,root,root,-)
@@ -311,6 +339,7 @@ rm -f %{buildroot}*/usr/lib/systemd/system/lvm2-monitor.service
 /usr/share/man/man8/lvm.8
 /usr/share/man/man8/lvm_import_vdo.8
 /usr/share/man/man8/lvmconfig.8
+/usr/share/man/man8/lvmdbusd.8
 /usr/share/man/man8/lvmdevices.8
 /usr/share/man/man8/lvmdiskscan.8
 /usr/share/man/man8/lvmdump.8
@@ -351,3 +380,10 @@ rm -f %{buildroot}*/usr/lib/systemd/system/lvm2-monitor.service
 /usr/share/man/man8/vgs.8
 /usr/share/man/man8/vgscan.8
 /usr/share/man/man8/vgsplit.8
+
+%files python
+%defattr(-,root,root,-)
+
+%files python3
+%defattr(-,root,root,-)
+/usr/lib/python3*/*

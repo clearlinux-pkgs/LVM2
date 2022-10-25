@@ -12,3 +12,4 @@
 --enable-python3-bindings
 --enable-testing
 --enable-udev_sync
+--enable-dbus-service
