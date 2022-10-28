@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.03.16
-Release  : 109
+Release  : 110
 URL      : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.16.tgz
 Source0  : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.16.tgz
 Summary  : device-mapper library
@@ -128,6 +128,8 @@ python components for the LVM2 package.
 Summary: python3 components for the LVM2 package.
 Group: Default
 Requires: python3-core
+Requires: pypi(dbus_python)
+Requires: pypi(pyudev)
 
 %description python3
 python3 components for the LVM2 package.
@@ -144,7 +146,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1666741348
+export SOURCE_DATE_EPOCH=1666988965
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -178,13 +180,13 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make unit-test
 
 %install
-export SOURCE_DATE_EPOCH=1666741348
+export SOURCE_DATE_EPOCH=1666988965
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/LVM2
-cp %{_builddir}/LVM2.%{version}/COPYING %{buildroot}/usr/share/package-licenses/LVM2/c14c50b6a56cc96c54353b985b104941ca8b86a3 || :
-cp %{_builddir}/LVM2.%{version}/COPYING.BSD %{buildroot}/usr/share/package-licenses/LVM2/a0d7ec1f083b527a6fe3fee041d01eef016aa871 || :
-cp %{_builddir}/LVM2.%{version}/COPYING.LIB %{buildroot}/usr/share/package-licenses/LVM2/caeb68c46fa36651acf592771d09de7937926bb3 || :
-cp %{_builddir}/LVM2.%{version}/tools/license.inc %{buildroot}/usr/share/package-licenses/LVM2/7c3f71e2821b69adeaef9563e74971395dd94eef || :
+cp %{_builddir}/LVM2.%{version}/COPYING %{buildroot}/usr/share/package-licenses/LVM2/c14c50b6a56cc96c54353b985b104941ca8b86a3
+cp %{_builddir}/LVM2.%{version}/COPYING.BSD %{buildroot}/usr/share/package-licenses/LVM2/a0d7ec1f083b527a6fe3fee041d01eef016aa871
+cp %{_builddir}/LVM2.%{version}/COPYING.LIB %{buildroot}/usr/share/package-licenses/LVM2/caeb68c46fa36651acf592771d09de7937926bb3
+cp %{_builddir}/LVM2.%{version}/tools/license.inc %{buildroot}/usr/share/package-licenses/LVM2/7c3f71e2821b69adeaef9563e74971395dd94eef
 %make_install install_systemd_units install_tmpfiles_configuration
 ## Remove excluded files
 rm -f %{buildroot}*/etc/lvm/lvm.conf
