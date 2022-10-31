@@ -1,2 +1,3 @@
 pypi(dbus_python)
 pypi(pyudev)
+pygobject-python3

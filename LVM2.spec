@@ -4,7 +4,7 @@
 #
 Name     : LVM2
 Version  : 2.03.16
-Release  : 110
+Release  : 111
 URL      : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.16.tgz
 Source0  : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.16.tgz
 Summary  : device-mapper library
@@ -128,6 +128,7 @@ python components for the LVM2 package.
 Summary: python3 components for the LVM2 package.
 Group: Default
 Requires: python3-core
+Requires: pygobject-python3
 Requires: pypi(dbus_python)
 Requires: pypi(pyudev)
 
@@ -146,7 +147,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1666988965
+export SOURCE_DATE_EPOCH=1667235749
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -180,7 +181,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make unit-test
 
 %install
-export SOURCE_DATE_EPOCH=1666988965
+export SOURCE_DATE_EPOCH=1667235749
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/LVM2
 cp %{_builddir}/LVM2.%{version}/COPYING %{buildroot}/usr/share/package-licenses/LVM2/c14c50b6a56cc96c54353b985b104941ca8b86a3
