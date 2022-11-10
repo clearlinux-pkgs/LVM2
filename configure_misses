@@ -1,9 +1,9 @@
 Configure miss: PKGCONFIGINIT
 Configure miss: cflow
 Configure miss: cscope
+Configure miss: g++ option to enable C++11 features
 Configure miss: vdoformat
 Configure miss: whether lstat accepts an empty string
-Configure miss: whether sys/types.h defines makedev
 Configure miss: whether to build cluster mirror log daemon
 Configure miss: whether to build dmfilemapd
 Configure miss: whether to build lvmlockd
