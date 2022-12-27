@@ -30,6 +30,7 @@ Configure miss: x86_64-generic-linux-gnu-chmod
 Configure miss: x86_64-generic-linux-gnu-cscope
 Configure miss: x86_64-generic-linux-gnu-modprobe
 Configure miss: x86_64-generic-linux-gnu-python3-config
+Configure miss: x86_64-generic-linux-gnu-readelf
 Configure miss: x86_64-generic-linux-gnu-sort
 Configure miss: x86_64-generic-linux-gnu-thin_check
 Configure miss: x86_64-generic-linux-gnu-thin_dump
