@@ -4,10 +4,10 @@
 # Using build pattern: configure
 #
 Name     : LVM2
-Version  : 2.03.21
-Release  : 114
-URL      : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.21.tgz
-Source0  : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.21.tgz
+Version  : 2.03.22
+Release  : 115
+URL      : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.22.tgz
+Source0  : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.22.tgz
 Summary  : device-mapper library
 Group    : Development/Tools
 License  : BSD-2-Clause GPL-2.0 LGPL-2.1
@@ -152,8 +152,8 @@ python3 components for the LVM2 package.
 
 
 %prep
-%setup -q -n LVM2.2.03.21
-cd %{_builddir}/LVM2.2.03.21
+%setup -q -n LVM2.2.03.22
+cd %{_builddir}/LVM2.2.03.22
 %patch -P 1 -p1
 %patch -P 2 -p1
 
@@ -162,7 +162,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1689797461
+export SOURCE_DATE_EPOCH=1692113461
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -196,7 +196,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make unit-test
 
 %install
-export SOURCE_DATE_EPOCH=1689797461
+export SOURCE_DATE_EPOCH=1692113461
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/LVM2
 cp %{_builddir}/LVM2.%{version}/COPYING %{buildroot}/usr/share/package-licenses/LVM2/c14c50b6a56cc96c54353b985b104941ca8b86a3 || :
