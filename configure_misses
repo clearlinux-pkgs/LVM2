@@ -1,41 +1,82 @@
 Configure miss: cflow
+Configure miss: cflow
+Configure miss: cscope
 Configure miss: cscope
 Configure miss: g++ option to enable C++11 features
+Configure miss: g++ option to enable C++11 features
+Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: gcc options needed to detect all undeclared functions
 Configure miss: vdoformat
+Configure miss: vdoformat
+Configure miss: whether lstat accepts an empty string
 Configure miss: whether lstat accepts an empty string
 Configure miss: whether to build cluster mirror log daemon
+Configure miss: whether to build cluster mirror log daemon
+Configure miss: whether to build dmfilemapd
 Configure miss: whether to build dmfilemapd
 Configure miss: whether to build lvmlockd
+Configure miss: whether to build lvmlockd
+Configure miss: whether to build lvmlockddlm
 Configure miss: whether to build lvmlockddlm
 Configure miss: whether to build lvmlockddlmcontrol
+Configure miss: whether to build lvmlockddlmcontrol
+Configure miss: whether to build lvmlockdidm
 Configure miss: whether to build lvmlockdidm
 Configure miss: whether to build lvmlockdsanlock
+Configure miss: whether to build lvmlockdsanlock
+Configure miss: whether to build lvmpolld
 Configure miss: whether to build lvmpolld
 Configure miss: whether to build notifydbus
+Configure miss: whether to build notifydbus
+Configure miss: whether to enable OCF resource agents
 Configure miss: whether to enable OCF resource agents
 Configure miss: whether to enable debugging
+Configure miss: whether to enable debugging
+Configure miss: whether to enable editline
 Configure miss: whether to enable editline
 Configure miss: whether to enable executable path detection in udev rules
+Configure miss: whether to enable executable path detection in udev rules
+Configure miss: whether to enable internationalisation
 Configure miss: whether to enable internationalisation
 Configure miss: whether to enable valgrind awareness of pools
+Configure miss: whether to enable valgrind awareness of pools
+Configure miss: whether to gather gcov profiling data
 Configure miss: whether to gather gcov profiling data
 Configure miss: whether to use static linking
+Configure miss: whether to use static linking
+Configure miss: x86_64-generic-linux-gnu-cache_check
 Configure miss: x86_64-generic-linux-gnu-cache_check
 Configure miss: x86_64-generic-linux-gnu-cache_dump
+Configure miss: x86_64-generic-linux-gnu-cache_dump
+Configure miss: x86_64-generic-linux-gnu-cache_repair
 Configure miss: x86_64-generic-linux-gnu-cache_repair
 Configure miss: x86_64-generic-linux-gnu-cache_restore
+Configure miss: x86_64-generic-linux-gnu-cache_restore
+Configure miss: x86_64-generic-linux-gnu-cflow
 Configure miss: x86_64-generic-linux-gnu-cflow
 Configure miss: x86_64-generic-linux-gnu-chmod
+Configure miss: x86_64-generic-linux-gnu-chmod
+Configure miss: x86_64-generic-linux-gnu-cscope
 Configure miss: x86_64-generic-linux-gnu-cscope
 Configure miss: x86_64-generic-linux-gnu-modprobe
+Configure miss: x86_64-generic-linux-gnu-modprobe
+Configure miss: x86_64-generic-linux-gnu-python3-config
 Configure miss: x86_64-generic-linux-gnu-python3-config
 Configure miss: x86_64-generic-linux-gnu-readelf
+Configure miss: x86_64-generic-linux-gnu-readelf
+Configure miss: x86_64-generic-linux-gnu-sort
 Configure miss: x86_64-generic-linux-gnu-sort
 Configure miss: x86_64-generic-linux-gnu-systemd-run
+Configure miss: x86_64-generic-linux-gnu-systemd-run
+Configure miss: x86_64-generic-linux-gnu-thin_check
 Configure miss: x86_64-generic-linux-gnu-thin_check
 Configure miss: x86_64-generic-linux-gnu-thin_dump
+Configure miss: x86_64-generic-linux-gnu-thin_dump
+Configure miss: x86_64-generic-linux-gnu-thin_repair
 Configure miss: x86_64-generic-linux-gnu-thin_repair
 Configure miss: x86_64-generic-linux-gnu-thin_restore
+Configure miss: x86_64-generic-linux-gnu-thin_restore
 Configure miss: x86_64-generic-linux-gnu-vdoformat
+Configure miss: x86_64-generic-linux-gnu-vdoformat
+Configure miss: x86_64-generic-linux-gnu-wc
 Configure miss: x86_64-generic-linux-gnu-wc
