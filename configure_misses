@@ -26,8 +26,6 @@ Configure miss: whether to build lvmlockdsanlock
 Configure miss: whether to build lvmlockdsanlock
 Configure miss: whether to build lvmpolld
 Configure miss: whether to build lvmpolld
-Configure miss: whether to build notifydbus
-Configure miss: whether to build notifydbus
 Configure miss: whether to enable OCF resource agents
 Configure miss: whether to enable OCF resource agents
 Configure miss: whether to enable debugging
