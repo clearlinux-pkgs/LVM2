@@ -7,7 +7,7 @@
 #
 Name     : LVM2
 Version  : 2.03.25
-Release  : 119
+Release  : 120
 URL      : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.25.tgz
 Source0  : https://mirrors.kernel.org/sourceware/lvm2/releases/LVM2.2.03.25.tgz
 Summary  : device-mapper event library
