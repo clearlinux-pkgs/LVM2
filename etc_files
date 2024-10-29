@@ -6,7 +6,6 @@ cache-mq.profile
 cache-smq.profile
 dbus-1
 lvm
-lvm' ']'
 lvmdbusd.profile
 profile
 vdo-small.profile
